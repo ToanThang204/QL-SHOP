@@ -55,7 +55,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(368, 213);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 15);
+            this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "nha cung cap";
             // 
@@ -77,9 +77,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Silver;
-            this.groupBox1.Location = new System.Drawing.Point(23, 12);
+            this.groupBox1.Location = new System.Drawing.Point(23, 38);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1129, 291);
+            this.groupBox1.Size = new System.Drawing.Size(1098, 256);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Quản lý nhà cung cấp";
@@ -89,14 +89,14 @@
             // 
             this.txtHotline.Location = new System.Drawing.Point(418, 60);
             this.txtHotline.Name = "txtHotline";
-            this.txtHotline.Size = new System.Drawing.Size(128, 24);
+            this.txtHotline.Size = new System.Drawing.Size(128, 21);
             this.txtHotline.TabIndex = 14;
             // 
             // txtSeach
             // 
             this.txtSeach.Location = new System.Drawing.Point(66, 174);
             this.txtSeach.Name = "txtSeach";
-            this.txtSeach.Size = new System.Drawing.Size(519, 24);
+            this.txtSeach.Size = new System.Drawing.Size(519, 21);
             this.txtSeach.TabIndex = 13;
             // 
             // btnXuatExel
@@ -143,21 +143,21 @@
             // 
             this.txtEmail.Location = new System.Drawing.Point(582, 60);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(144, 24);
+            this.txtEmail.Size = new System.Drawing.Size(144, 21);
             this.txtEmail.TabIndex = 7;
             // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(199, 60);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(195, 24);
+            this.txtName.Size = new System.Drawing.Size(195, 21);
             this.txtName.TabIndex = 5;
             // 
             // txtMaNCC
             // 
             this.txtMaNCC.Location = new System.Drawing.Point(27, 60);
             this.txtMaNCC.Name = "txtMaNCC";
-            this.txtMaNCC.Size = new System.Drawing.Size(155, 24);
+            this.txtMaNCC.Size = new System.Drawing.Size(155, 21);
             this.txtMaNCC.TabIndex = 4;
             // 
             // label5
@@ -167,7 +167,7 @@
             this.label5.ForeColor = System.Drawing.Color.Silver;
             this.label5.Location = new System.Drawing.Point(592, 36);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 16);
+            this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 3;
             this.label5.Text = "Email";
             // 
@@ -178,7 +178,7 @@
             this.label4.ForeColor = System.Drawing.Color.Silver;
             this.label4.Location = new System.Drawing.Point(415, 36);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 16);
+            this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 2;
             this.label4.Text = "Hotline";
             // 
@@ -189,7 +189,7 @@
             this.label3.ForeColor = System.Drawing.Color.Silver;
             this.label3.Location = new System.Drawing.Point(196, 36);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 16);
+            this.label3.Size = new System.Drawing.Size(95, 13);
             this.label3.TabIndex = 1;
             this.label3.Text = "Tên nhà cung cấp";
             // 
@@ -200,7 +200,7 @@
             this.label2.ForeColor = System.Drawing.Color.Silver;
             this.label2.Location = new System.Drawing.Point(24, 36);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 16);
+            this.label2.Size = new System.Drawing.Size(91, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã nhà cung cấp";
             // 
@@ -230,7 +230,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1171, 786);
+            this.ClientSize = new System.Drawing.Size(1133, 760);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);

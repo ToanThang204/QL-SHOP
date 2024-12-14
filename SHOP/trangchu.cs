@@ -26,8 +26,8 @@ namespace SHOP
             pictureBoxtrangchu.Size = new Size(1164, 983);  // Kích thước của pictureBoxtrangchu
             pictureBoxtrangchu.Location = new Point(349, -1);  // Vị trí của pictureBoxtrangchu
         
-            this.Width = 1530;
-            this.Height = 982;
+            this.Width = 1500;
+            this.Height = 800;
             // Lặp qua tất cả các button trong form và đăng ký sự kiện
             foreach (Control control in this.Controls)
             {
