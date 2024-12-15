@@ -1,4 +1,4 @@
-# Sourcode Ql_shop nha ae........
+# Sourcode Ql_shop nha ae........hi
 # tài khoản đăng nhập "admin" password "123"
 # có cập nhật code ghi dòng tin nhắn cho dễ biết là đã cập nhật về những gì
 # Mã Màu ->> #1E9BEB
