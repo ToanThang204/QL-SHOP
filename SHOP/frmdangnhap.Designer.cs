@@ -52,6 +52,7 @@
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
+            this.pictureBoxLogo.Click += new System.EventHandler(this.pictureBoxLogo_Click);
             // 
             // dangnhaphethong
             // 
