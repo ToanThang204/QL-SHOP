@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "E:\\GitHub\\dem1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|E:\\GitHub\\dem1\\shop\\frmdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\frmdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|e:\\github\\dem1\\shop\\trangchu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\trangchu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|e:\\github\\dem1\\shop\\trangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\trangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|E:\\GitHub\\dem1\\shop\\frmdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\frmdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|E:\\GitHub\\dem1\\shop\\trangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\trangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|E:\\GitHub\\dem1\\shop\\frmdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\frmdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|E:\\GitHub\\dem1\\shop\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|E:\\GitHub\\dem1\\shop\\frmdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\frmdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|E:\\GitHub\\dem1\\shop\\trangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\trangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|E:\\GitHub\\dem1\\shop\\frmquanlyhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -31,7 +39,7 @@
       "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\frmnhacungcap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|e:\\github\\dem1\\shop\\frmnhaphang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|E:\\GitHub\\dem1\\shop\\frmnhaphang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\frmnhaphang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -42,8 +50,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmdangnhap.cs [Design]",
+              "DocumentMoniker": "E:\\GitHub\\dem1\\SHOP\\frmdangnhap.cs",
+              "RelativeDocumentMoniker": "SHOP\\frmdangnhap.cs",
+              "ToolTip": "E:\\GitHub\\dem1\\SHOP\\frmdangnhap.cs [Design]",
+              "RelativeToolTip": "SHOP\\frmdangnhap.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T16:27:03.641Z",
+              "IsPinned": true
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -54,7 +74,7 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
             },
             {
               "$type": "Bookmark",
@@ -66,91 +86,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "frmdangnhap.cs [Design]",
-              "DocumentMoniker": "E:\\GitHub\\dem1\\SHOP\\frmdangnhap.cs",
-              "RelativeDocumentMoniker": "SHOP\\frmdangnhap.cs",
-              "ToolTip": "E:\\GitHub\\dem1\\SHOP\\frmdangnhap.cs [Design]",
-              "RelativeToolTip": "SHOP\\frmdangnhap.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T16:27:03.641Z",
-              "IsPinned": true,
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "trangchu.cs",
-              "DocumentMoniker": "E:\\GitHub\\dem1\\SHOP\\trangchu.cs",
-              "RelativeDocumentMoniker": "SHOP\\trangchu.cs",
-              "ToolTip": "E:\\GitHub\\dem1\\SHOP\\trangchu.cs",
-              "RelativeToolTip": "SHOP\\trangchu.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAD4vxcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T19:03:19.049Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "frmdangnhap.cs",
-              "DocumentMoniker": "E:\\GitHub\\dem1\\SHOP\\frmdangnhap.cs",
-              "RelativeDocumentMoniker": "SHOP\\frmdangnhap.cs",
-              "ToolTip": "E:\\GitHub\\dem1\\SHOP\\frmdangnhap.cs",
-              "RelativeToolTip": "SHOP\\frmdangnhap.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGoAAAAAAAAAAAAAAA==",
+              "Title": "trangchu.Designer.cs",
+              "DocumentMoniker": "E:\\GitHub\\dem1\\SHOP\\trangchu.Designer.cs",
+              "RelativeDocumentMoniker": "SHOP\\trangchu.Designer.cs",
+              "ToolTip": "E:\\GitHub\\dem1\\SHOP\\trangchu.Designer.cs",
+              "RelativeToolTip": "SHOP\\trangchu.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T17:01:20.422Z",
+              "WhenOpened": "2024-12-16T16:08:58.002Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "frmnhacungcap.cs [Design]",
-              "DocumentMoniker": "E:\\GitHub\\dem1\\SHOP\\frmnhacungcap.cs",
-              "RelativeDocumentMoniker": "SHOP\\frmnhacungcap.cs",
-              "ToolTip": "E:\\GitHub\\dem1\\SHOP\\frmnhacungcap.cs [Design]",
-              "RelativeToolTip": "SHOP\\frmnhacungcap.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T13:37:23.227Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "frmquanlyhang.cs",
-              "DocumentMoniker": "E:\\GitHub\\dem1\\SHOP\\frmquanlyhang.cs",
-              "RelativeDocumentMoniker": "SHOP\\frmquanlyhang.cs",
-              "ToolTip": "E:\\GitHub\\dem1\\SHOP\\frmquanlyhang.cs",
-              "RelativeToolTip": "SHOP\\frmquanlyhang.cs",
-              "ViewState": "AgIAAGcAAAAAAAAAAAAcwJ8AAABnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T13:34:25.313Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "frmquanlyhang.cs [Design]",
-              "DocumentMoniker": "E:\\GitHub\\dem1\\SHOP\\frmquanlyhang.cs",
-              "RelativeDocumentMoniker": "SHOP\\frmquanlyhang.cs",
-              "ToolTip": "E:\\GitHub\\dem1\\SHOP\\frmquanlyhang.cs [Design]",
-              "RelativeToolTip": "SHOP\\frmquanlyhang.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T13:34:23.845Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "frmnhaphang.cs [Design]",
-              "DocumentMoniker": "E:\\GitHub\\dem1\\SHOP\\frmnhaphang.cs",
-              "RelativeDocumentMoniker": "SHOP\\frmnhaphang.cs",
-              "ToolTip": "E:\\GitHub\\dem1\\SHOP\\frmnhaphang.cs [Design]",
-              "RelativeToolTip": "SHOP\\frmnhaphang.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T13:34:19.993Z",
-              "EditorCaption": " [Design]"
+              "DocumentIndex": 3,
+              "Title": "packages.config",
+              "DocumentMoniker": "E:\\GitHub\\dem1\\SHOP\\packages.config",
+              "RelativeDocumentMoniker": "SHOP\\packages.config",
+              "ToolTip": "E:\\GitHub\\dem1\\SHOP\\packages.config",
+              "RelativeToolTip": "SHOP\\packages.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-12-16T16:06:01.343Z"
             },
             {
               "$type": "Document",
@@ -161,8 +118,76 @@
               "ToolTip": "E:\\GitHub\\dem1\\SHOP\\trangchu.cs [Design]",
               "RelativeToolTip": "SHOP\\trangchu.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-14T10:48:34.89Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-12-14T10:48:34.89Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "trangchu.cs",
+              "DocumentMoniker": "E:\\GitHub\\dem1\\SHOP\\trangchu.cs",
+              "RelativeDocumentMoniker": "SHOP\\trangchu.cs",
+              "ToolTip": "E:\\GitHub\\dem1\\SHOP\\trangchu.cs",
+              "RelativeToolTip": "SHOP\\trangchu.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAD4vxcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T19:03:19.049Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmdangnhap.cs",
+              "DocumentMoniker": "E:\\GitHub\\dem1\\SHOP\\frmdangnhap.cs",
+              "RelativeDocumentMoniker": "SHOP\\frmdangnhap.cs",
+              "ToolTip": "E:\\GitHub\\dem1\\SHOP\\frmdangnhap.cs",
+              "RelativeToolTip": "SHOP\\frmdangnhap.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAIwGoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T17:01:20.422Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "frmnhacungcap.cs [Design]",
+              "DocumentMoniker": "E:\\GitHub\\dem1\\SHOP\\frmnhacungcap.cs",
+              "RelativeDocumentMoniker": "SHOP\\frmnhacungcap.cs",
+              "ToolTip": "E:\\GitHub\\dem1\\SHOP\\frmnhacungcap.cs [Design]",
+              "RelativeToolTip": "SHOP\\frmnhacungcap.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T13:37:23.227Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "frmquanlyhang.cs",
+              "DocumentMoniker": "E:\\GitHub\\dem1\\SHOP\\frmquanlyhang.cs",
+              "RelativeDocumentMoniker": "SHOP\\frmquanlyhang.cs",
+              "ToolTip": "E:\\GitHub\\dem1\\SHOP\\frmquanlyhang.cs",
+              "RelativeToolTip": "SHOP\\frmquanlyhang.cs",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAcwJ8AAABnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T13:34:25.313Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "frmquanlyhang.cs [Design]",
+              "DocumentMoniker": "E:\\GitHub\\dem1\\SHOP\\frmquanlyhang.cs",
+              "RelativeDocumentMoniker": "SHOP\\frmquanlyhang.cs",
+              "ToolTip": "E:\\GitHub\\dem1\\SHOP\\frmquanlyhang.cs [Design]",
+              "RelativeToolTip": "SHOP\\frmquanlyhang.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T13:34:23.845Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "frmnhaphang.cs [Design]",
+              "DocumentMoniker": "E:\\GitHub\\dem1\\SHOP\\frmnhaphang.cs",
+              "RelativeDocumentMoniker": "SHOP\\frmnhaphang.cs",
+              "ToolTip": "E:\\GitHub\\dem1\\SHOP\\frmnhaphang.cs [Design]",
+              "RelativeToolTip": "SHOP\\frmnhaphang.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T13:34:19.993Z"
             }
           ]
         }
