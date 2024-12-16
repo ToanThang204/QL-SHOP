@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDangNhap));
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.dangnhaphethong = new System.Windows.Forms.Label();
@@ -38,8 +37,9 @@
             this.txtmatkhau = new System.Windows.Forms.TextBox();
             this.btndangnhap = new System.Windows.Forms.Button();
             this.btnthoat = new System.Windows.Forms.Button();
-            this.timerEfect = new System.Windows.Forms.Timer(this.components);
+            this.videoView1 = new LibVLCSharp.WinForms.VideoView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.videoView1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxLogo
@@ -94,7 +94,6 @@
             this.txttendangnhap.Name = "txttendangnhap";
             this.txttendangnhap.Size = new System.Drawing.Size(170, 20);
             this.txttendangnhap.TabIndex = 4;
-            this.txttendangnhap.TextChanged += new System.EventHandler(this.txttendangnhap_TextChanged);
             // 
             // txtmatkhau
             // 
@@ -102,7 +101,6 @@
             this.txtmatkhau.Name = "txtmatkhau";
             this.txtmatkhau.Size = new System.Drawing.Size(170, 20);
             this.txtmatkhau.TabIndex = 5;
-            this.txtmatkhau.TextChanged += new System.EventHandler(this.txtmatkhau_TextChanged);
             // 
             // btndangnhap
             // 
@@ -125,10 +123,16 @@
             this.btnthoat.UseVisualStyleBackColor = true;
             this.btnthoat.Click += new System.EventHandler(this.btnthoat_Click);
             // 
-            // timerEfect
+            // videoView1
             // 
-            this.timerEfect.Interval = 15;
-            this.timerEfect.Tick += new System.EventHandler(this.timerEfect_Tick);
+            this.videoView1.BackColor = System.Drawing.Color.Black;
+            this.videoView1.Location = new System.Drawing.Point(628, 19);
+            this.videoView1.MediaPlayer = null;
+            this.videoView1.Name = "videoView1";
+            this.videoView1.Size = new System.Drawing.Size(101, 43);
+            this.videoView1.TabIndex = 8;
+            this.videoView1.Text = "videoView1";
+            this.videoView1.Visible = false;
             // 
             // FrmDangNhap
             // 
@@ -137,6 +141,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(840, 417);
+            this.Controls.Add(this.videoView1);
             this.Controls.Add(this.btnthoat);
             this.Controls.Add(this.btndangnhap);
             this.Controls.Add(this.txtmatkhau);
@@ -151,9 +156,8 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Nhập Hệ Thống";
-            this.Load += new System.EventHandler(this.FrmDangNhap_Load);
-            this.Enter += new System.EventHandler(this.txtmatkhau_TextChanged);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.videoView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,7 +173,7 @@
         private System.Windows.Forms.TextBox txtmatkhau;
         private System.Windows.Forms.Button btndangnhap;
         private System.Windows.Forms.Button btnthoat;
-        private System.Windows.Forms.Timer timerEfect;
+
     }
 }
 

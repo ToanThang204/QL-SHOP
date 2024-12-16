@@ -1,0 +1,352 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Github_demo\\demo2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|D:\\Github_demo\\demo2\\shop\\frmdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\frmdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|d:\\github_demo\\demo2\\shop\\trangchu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\trangchu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|d:\\github_demo\\demo2\\shop\\frmtaodonhang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\frmtaodonhang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|d:\\github_demo\\demo2\\shop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|d:\\github_demo\\demo2\\shop\\frmquanlynhanvien.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\frmquanlynhanvien.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|d:\\github_demo\\demo2\\shop\\frmquanlyhang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\frmquanlyhang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|d:\\github_demo\\demo2\\shop\\frmnhaphang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\frmnhaphang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|d:\\github_demo\\demo2\\shop\\frmnhacungcap.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\frmnhacungcap.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|d:\\github_demo\\demo2\\shop\\frmkhohang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\frmkhohang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|d:\\github_demo\\demo2\\shop\\frmdangnhap.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\frmdangnhap.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|d:\\github_demo\\demo2\\shop\\properties\\settings.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\properties\\settings.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|d:\\github_demo\\demo2\\shop\\properties\\resources.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\properties\\resources.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|d:\\github_demo\\demo2\\shop\\frmdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\frmdangnhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|D:\\Github_demo\\demo2\\shop\\trangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\trangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|D:\\Github_demo\\demo2\\shop\\trangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\trangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|D:\\Github_demo\\demo2\\shop\\frmquanlyhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\frmquanlyhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|D:\\Github_demo\\demo2\\shop\\frmquanlyhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\frmquanlyhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|D:\\Github_demo\\demo2\\shop\\frmnhacungcap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\frmnhacungcap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|D:\\Github_demo\\demo2\\shop\\frmnhaphang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2AFBC09E-88A3-4D87-A6D9-CC23CA4194F9}|SHOP\\SHOP.csproj|solutionrelative:shop\\frmnhaphang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmdangnhap.cs [Design]",
+              "DocumentMoniker": "D:\\Github_demo\\demo2\\SHOP\\frmdangnhap.cs",
+              "RelativeDocumentMoniker": "SHOP\\frmdangnhap.cs",
+              "ToolTip": "D:\\Github_demo\\demo2\\SHOP\\frmdangnhap.cs [Design]",
+              "RelativeToolTip": "SHOP\\frmdangnhap.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T16:27:03.641Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "trangchu.Designer.cs",
+              "DocumentMoniker": "D:\\Github_demo\\demo2\\SHOP\\trangchu.Designer.cs",
+              "RelativeDocumentMoniker": "SHOP\\trangchu.Designer.cs",
+              "ToolTip": "D:\\Github_demo\\demo2\\SHOP\\trangchu.Designer.cs",
+              "RelativeToolTip": "SHOP\\trangchu.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOQAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T16:11:51.139Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Github_demo\\demo2\\SHOP\\Program.cs",
+              "RelativeDocumentMoniker": "SHOP\\Program.cs",
+              "ToolTip": "D:\\Github_demo\\demo2\\SHOP\\Program.cs",
+              "RelativeToolTip": "SHOP\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T16:11:46.091Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmtaodonhang.Designer.cs",
+              "DocumentMoniker": "D:\\Github_demo\\demo2\\SHOP\\frmtaodonhang.Designer.cs",
+              "RelativeDocumentMoniker": "SHOP\\frmtaodonhang.Designer.cs",
+              "ToolTip": "D:\\Github_demo\\demo2\\SHOP\\frmtaodonhang.Designer.cs",
+              "RelativeToolTip": "SHOP\\frmtaodonhang.Designer.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T16:11:30.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmquanlynhanvien.Designer.cs",
+              "DocumentMoniker": "D:\\Github_demo\\demo2\\SHOP\\frmquanlynhanvien.Designer.cs",
+              "RelativeDocumentMoniker": "SHOP\\frmquanlynhanvien.Designer.cs",
+              "ToolTip": "D:\\Github_demo\\demo2\\SHOP\\frmquanlynhanvien.Designer.cs",
+              "RelativeToolTip": "SHOP\\frmquanlynhanvien.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T16:11:24.449Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frmquanlyhang.Designer.cs",
+              "DocumentMoniker": "D:\\Github_demo\\demo2\\SHOP\\frmquanlyhang.Designer.cs",
+              "RelativeDocumentMoniker": "SHOP\\frmquanlyhang.Designer.cs",
+              "ToolTip": "D:\\Github_demo\\demo2\\SHOP\\frmquanlyhang.Designer.cs",
+              "RelativeToolTip": "SHOP\\frmquanlyhang.Designer.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T16:11:15.359Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "frmnhaphang.Designer.cs",
+              "DocumentMoniker": "D:\\Github_demo\\demo2\\SHOP\\frmnhaphang.Designer.cs",
+              "RelativeDocumentMoniker": "SHOP\\frmnhaphang.Designer.cs",
+              "ToolTip": "D:\\Github_demo\\demo2\\SHOP\\frmnhaphang.Designer.cs",
+              "RelativeToolTip": "SHOP\\frmnhaphang.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T16:11:07.219Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "frmnhacungcap.Designer.cs",
+              "DocumentMoniker": "D:\\Github_demo\\demo2\\SHOP\\frmnhacungcap.Designer.cs",
+              "RelativeDocumentMoniker": "SHOP\\frmnhacungcap.Designer.cs",
+              "ToolTip": "D:\\Github_demo\\demo2\\SHOP\\frmnhacungcap.Designer.cs",
+              "RelativeToolTip": "SHOP\\frmnhacungcap.Designer.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T16:10:59.909Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "frmkhohang.Designer.cs",
+              "DocumentMoniker": "D:\\Github_demo\\demo2\\SHOP\\frmkhohang.Designer.cs",
+              "RelativeDocumentMoniker": "SHOP\\frmkhohang.Designer.cs",
+              "ToolTip": "D:\\Github_demo\\demo2\\SHOP\\frmkhohang.Designer.cs",
+              "RelativeToolTip": "SHOP\\frmkhohang.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T16:10:52.634Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "frmdangnhap.Designer.cs",
+              "DocumentMoniker": "D:\\Github_demo\\demo2\\SHOP\\frmdangnhap.Designer.cs",
+              "RelativeDocumentMoniker": "SHOP\\frmdangnhap.Designer.cs",
+              "ToolTip": "D:\\Github_demo\\demo2\\SHOP\\frmdangnhap.Designer.cs",
+              "RelativeToolTip": "SHOP\\frmdangnhap.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T16:10:42.786Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Settings.Designer.cs",
+              "DocumentMoniker": "D:\\Github_demo\\demo2\\SHOP\\Properties\\Settings.Designer.cs",
+              "RelativeDocumentMoniker": "SHOP\\Properties\\Settings.Designer.cs",
+              "ToolTip": "D:\\Github_demo\\demo2\\SHOP\\Properties\\Settings.Designer.cs",
+              "RelativeToolTip": "SHOP\\Properties\\Settings.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T16:10:18.796Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Resources.Designer.cs",
+              "DocumentMoniker": "D:\\Github_demo\\demo2\\SHOP\\Properties\\Resources.Designer.cs",
+              "RelativeDocumentMoniker": "SHOP\\Properties\\Resources.Designer.cs",
+              "ToolTip": "D:\\Github_demo\\demo2\\SHOP\\Properties\\Resources.Designer.cs",
+              "RelativeToolTip": "SHOP\\Properties\\Resources.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T16:09:56.662Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "trangchu.cs",
+              "DocumentMoniker": "D:\\Github_demo\\demo2\\SHOP\\trangchu.cs",
+              "RelativeDocumentMoniker": "SHOP\\trangchu.cs",
+              "ToolTip": "D:\\Github_demo\\demo2\\SHOP\\trangchu.cs",
+              "RelativeToolTip": "SHOP\\trangchu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T19:03:19.049Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "frmdangnhap.cs",
+              "DocumentMoniker": "D:\\Github_demo\\demo2\\SHOP\\frmdangnhap.cs",
+              "RelativeDocumentMoniker": "SHOP\\frmdangnhap.cs",
+              "ToolTip": "D:\\Github_demo\\demo2\\SHOP\\frmdangnhap.cs",
+              "RelativeToolTip": "SHOP\\frmdangnhap.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwEsAAABeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T17:01:20.422Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "frmnhacungcap.cs [Design]",
+              "DocumentMoniker": "D:\\Github_demo\\demo2\\SHOP\\frmnhacungcap.cs",
+              "RelativeDocumentMoniker": "SHOP\\frmnhacungcap.cs",
+              "ToolTip": "E:\\GitHub\\dem1\\SHOP\\frmnhacungcap.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T13:37:23.227Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "frmquanlyhang.cs",
+              "DocumentMoniker": "D:\\Github_demo\\demo2\\SHOP\\frmquanlyhang.cs",
+              "RelativeDocumentMoniker": "SHOP\\frmquanlyhang.cs",
+              "ToolTip": "D:\\Github_demo\\demo2\\SHOP\\frmquanlyhang.cs",
+              "RelativeToolTip": "SHOP\\frmquanlyhang.cs",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAcwJ8AAABnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T13:34:25.313Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "frmquanlyhang.cs [Design]",
+              "DocumentMoniker": "D:\\Github_demo\\demo2\\SHOP\\frmquanlyhang.cs",
+              "RelativeDocumentMoniker": "SHOP\\frmquanlyhang.cs",
+              "ToolTip": "E:\\GitHub\\dem1\\SHOP\\frmquanlyhang.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T13:34:23.845Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "frmnhaphang.cs [Design]",
+              "DocumentMoniker": "D:\\Github_demo\\demo2\\SHOP\\frmnhaphang.cs",
+              "RelativeDocumentMoniker": "SHOP\\frmnhaphang.cs",
+              "ToolTip": "E:\\GitHub\\dem1\\SHOP\\frmnhaphang.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T13:34:19.993Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "trangchu.cs [Design]",
+              "DocumentMoniker": "D:\\Github_demo\\demo2\\SHOP\\trangchu.cs",
+              "RelativeDocumentMoniker": "SHOP\\trangchu.cs",
+              "ToolTip": "D:\\Github_demo\\demo2\\SHOP\\trangchu.cs [Design]",
+              "RelativeToolTip": "SHOP\\trangchu.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T10:48:34.89Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

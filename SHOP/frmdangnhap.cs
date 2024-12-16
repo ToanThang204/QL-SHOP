@@ -1,28 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
+using LibVLCSharp.Shared;
+using LibVLCSharp.WinForms;
 
 namespace SHOP
 {
     public partial class FrmDangNhap : Form
     {
-        int expandStep = 10; 
+        private LibVLC _libVLC;                // Thư viện VLC
+        private MediaPlayer _mediaPlayer;      // Trình phát VLC
+        private LibVLCSharp.WinForms.VideoView videoView1; // VideoView động
 
         public FrmDangNhap()
         {
             InitializeComponent();
+
+            // Khởi tạo LibVLC
+            Core.Initialize();
         }
+
         private void btnthoat_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát?", "Xác nhận",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            if (result == DialogResult.Yes) {
-                Application.Exit(); //thoat
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
             }
         }
 
@@ -41,12 +44,7 @@ namespace SHOP
             if (username == "admin" && password == "123") // Kiểm tra thông tin đăng nhập
             {
                 MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Đưa PictureBox lên trên cùng
-                pictureBoxLogo.BringToFront();
-
-                // Bắt đầu hiệu ứng di chuyển
-                timerEfect.Start();
+                PlayVideo(); // Phát video khi đăng nhập thành công
             }
             else
             {
@@ -54,40 +52,55 @@ namespace SHOP
             }
         }
 
-        private void txttendangnhap_TextChanged(object sender, EventArgs e)
+        private void PlayVideo()
         {
-
-        }
-
-        private void txtmatkhau_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void timerEfect_Tick(object sender, EventArgs e)
-        {
-            pictureBoxLogo.Left -= expandStep; // Dịch sang trái
-            pictureBoxLogo.Width += expandStep; // Tăng chiều rộng
-
-            // Kiểm tra nếu PictureBox đã che hết form
-            if (pictureBoxLogo.Left <= 0)
+            // Tạo VideoView động
+            videoView1 = new LibVLCSharp.WinForms.VideoView
             {
-                timerEfect.Stop(); // Dừng Timer
-                OpenNextForm();    // Mở form tiếp theo
+                Location = new System.Drawing.Point(0, 0),  // Vị trí góc trái
+                Size = new System.Drawing.Size(860, 460),  // Kích thước form
+                Dock = DockStyle.Fill,                     // Phủ toàn bộ form
+                BackColor = System.Drawing.Color.Black     // Nền đen
+            };
+
+            // Thêm VideoView vào form và đưa lên trên cùng
+            this.Controls.Add(videoView1);
+            videoView1.BringToFront();
+
+            // Khởi tạo LibVLC và MediaPlayer
+            _libVLC = new LibVLC();
+            _mediaPlayer = new MediaPlayer(_libVLC);
+            videoView1.MediaPlayer = _mediaPlayer;
+
+            // Đường dẫn video
+            var videoPath = Path.GetFullPath(@"D:\Github_demo\demo2\SHOP\Resources\LOGO.mp4");
+
+            if (!File.Exists(videoPath))
+            {
+                MessageBox.Show("Không tìm thấy file video!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            // Phát video
+            _mediaPlayer.Play(new Media(_libVLC, new Uri(videoPath)));
+
+            // Khi video kết thúc, chuyển sang form mới
+            _mediaPlayer.EndReached += (sender, e) =>
+            {
+                Invoke(new Action(() =>
+                {
+                    OpenNextForm();
+                }));
+            };
         }
+
         private void OpenNextForm()
         {
             // Mở form mới
-            trangchu form2 = new trangchu(); // Thay Form2 bằng form thực tế của bạn
+            trangchu form2 = new trangchu();
             form2.Show();
             this.Hide();
-
         }
 
-        private void FrmDangNhap_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
