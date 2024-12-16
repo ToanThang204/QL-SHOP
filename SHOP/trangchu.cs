@@ -69,11 +69,7 @@ namespace SHOP
             Button button = (Button)sender;
             button.BackColor = Color.Goldenrod; // Màu nền mặc định
         }
-        private void pictureBoxtranchu_Click(object sender, EventArgs e)
-        {
-
-        }
-
+ 
         private void btntrangchu_Click(object sender, EventArgs e)
         {
             pictureBoxtrangchu.Visible = true; // Hiển thị lại pictureBoxtrangchu
@@ -154,16 +150,6 @@ namespace SHOP
             {
                 return;
             }
-        }
-        private void OpenNextForm()
-        {
-
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

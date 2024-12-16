@@ -234,7 +234,20 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
-
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\bill.png" />
+    <Content Include="Resources\box.png" />
+    <Content Include="Resources\business.png" />
+    <Content Include="Resources\good.png" />
+    <Content Include="Resources\home.png" />
+    <Content Include="Resources\LOGO.mp4" />
+    <Content Include="Resources\LUXURY %281133 x 760 px%29.png" />
+    <Content Include="Resources\LUXURY lOGO %28260x 420px%29.png" />
+    <Content Include="Resources\LUXURYlOGO%28842x420px%29.png" />
+    <Content Include="Resources\sign-out.png" />
+    <Content Include="Resources\supplier-relationship.png" />
+    <Content Include="Resources\warehouse.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\VideoLAN.LibVLC.Windows.3.0.21\build\VideoLAN.LibVLC.Windows.targets" Condition="Exists('..\packages\VideoLAN.LibVLC.Windows.3.0.21\build\VideoLAN.LibVLC.Windows.targets')" />

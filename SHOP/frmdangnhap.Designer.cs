@@ -97,6 +97,7 @@
             // 
             // txtmatkhau
             // 
+            this.txtmatkhau.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtmatkhau.Location = new System.Drawing.Point(219, 215);
             this.txtmatkhau.Name = "txtmatkhau";
             this.txtmatkhau.Size = new System.Drawing.Size(170, 20);
