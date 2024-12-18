@@ -4,11 +4,9 @@ on:
   push:
     branches:
       - main
-      - master
   pull_request:
     branches:
       - main
-      - master
 
 jobs:
   codeclimate:
@@ -21,7 +19,7 @@ jobs:
 
       - name: Install CodeClimate CLI
         run: |
-          curl -L https://github.com/codeclimate/test-reporter/releases/latest/download/codeclimate-test-reporter-linux-amd64 -o codeclimate-test-reporter
+          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > codeclimate-test-reporter
           chmod +x codeclimate-test-reporter
           sudo mv codeclimate-test-reporter /usr/local/bin
 
@@ -30,6 +28,6 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         run: |
           codeclimate-test-reporter before-build
-          # Thay lệnh này bằng lệnh test phù hợp với dự án của bạn
-          php vendor/bin/phpunit --coverage-text || npm test -- --coverage
+          # Thay lệnh bên dưới bằng lệnh test phù hợp với dự án của bạn
+          npm test -- --coverage || php vendor/bin/phpunit --coverage-text
           codeclimate-test-reporter after-build --exit-code $?
