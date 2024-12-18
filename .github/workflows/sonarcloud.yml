@@ -34,16 +34,16 @@ jobs:
           Invoke-WebRequest -Uri "https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/9.0.2.104486/sonar-scanner-9.0.2.104486-net-framework.zip" -OutFile "sonar-scanner-msbuild.zip"
           Expand-Archive -Path "sonar-scanner-msbuild.zip" -DestinationPath "sonar-scanner"
 
-      - name: Find and set project solution
-        id: find_solution
+      - name: Find SonarScanner executable
+        id: find_scanner
         run: |
-          Write-Host "Searching for SHOP.sln..."
-          $solution = Get-ChildItem -Recurse -Filter "SHOP.sln" | Select-Object -First 1
-          if ($solution) {
-            Write-Host "Solution file found: $($solution.FullName)"
-            echo "solution_path=$($solution.FullName)" >> $env:GITHUB_ENV
+          Write-Host "Searching for SonarScanner.MSBuild.exe..."
+          $scanner = Get-ChildItem -Recurse -Filter SonarScanner.MSBuild.exe | Select-Object -First 1
+          if ($scanner) {
+            Write-Host "Found SonarScanner at: $($scanner.FullName)"
+            echo "scanner_exe=$($scanner.FullName)" >> $env:GITHUB_ENV
           } else {
-            Write-Host "ERROR: SHOP.sln not found!"
+            Write-Host "ERROR: SonarScanner.MSBuild.exe not found!"
             exit 1
           }
 
@@ -52,18 +52,16 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           Write-Host "Running SonarScanner begin..."
-          cd sonar-scanner/sonar-scanner-9.0.2.104486-net-framework
-          .\SonarScanner.MSBuild.exe begin /k:"toanthang204_QL-SHOP" /o:"toanthang204" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          & "${{ env.scanner_exe }}" begin /k:"toanthang204_QL-SHOP" /o:"toanthang204" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
 
       - name: Build project
         run: |
           Write-Host "Building project..."
-          msbuild "${{ env.solution_path }}" /p:Configuration=Release
+          msbuild "SHOP.sln" /p:Configuration=Release
 
       - name: Run SonarScanner end
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           Write-Host "Running SonarScanner end..."
-          cd sonar-scanner/sonar-scanner-9.0.2.104486-net-framework
-          .\SonarScanner.MSBuild.exe end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          & "${{ env.scanner_exe }}" end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
