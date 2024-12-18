@@ -31,10 +31,12 @@ jobs:
           distribution: 'adopt'
           java-version: '11'
 
-      # 4. Cài đặt SonarScanner for MSBuild bằng Chocolatey
+      # 4. Download và cài đặt SonarScanner for MSBuild
       - name: Install SonarScanner for MSBuild
         run: |
-          choco install sonarscanner --version=5.12.0.65733 --no-progress --force
+          Invoke-WebRequest -Uri "https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/9.0.2.104486/sonar-scanner-9.0.2.104486-net-framework.zip" -OutFile "sonar-scanner-msbuild.zip"
+          Expand-Archive -Path "sonar-scanner-msbuild.zip" -DestinationPath ".\sonar-scanner"
+          echo "${{ github.workspace }}\sonar-scanner\sonar-scanner-9.0.2.104486-net-framework" | Out-File -Append -FilePath $env:GITHUB_PATH
 
       # 5. Restore dependencies
       - name: Restore dependencies
