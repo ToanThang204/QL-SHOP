@@ -18,23 +18,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Install CodeClimate CLI
-      - name: Install CodeClimate CLI
+      # 2. Download and Install CodeClimate Test Reporter
+      - name: Install CodeClimate Test Reporter
         run: |
-          echo "Downloading CodeClimate CLI..."
-          curl -L -o codeclimate-test-reporter https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
-          chmod +x codeclimate-test-reporter
-          sudo mv codeclimate-test-reporter /usr/local/bin/codeclimate-test-reporter
-          ls -lh /usr/local/bin/codeclimate-test-reporter
-          echo "Installation completed."
+          echo "Downloading CodeClimate Test Reporter..."
+          curl -L -o artifacts.tar.gz https://github.com/codeclimate/test-reporter/releases/download/v0.11.1/artifacts.tar.gz
+          tar -xzf artifacts.tar.gz
+          chmod +x cc-test-reporter
+          sudo mv cc-test-reporter /usr/local/bin/codeclimate-test-reporter
+          echo "CodeClimate Test Reporter installed successfully!"
 
-      # 3. Verify CodeClimate CLI
-      - name: Verify CodeClimate CLI
+      # 3. Verify CodeClimate CLI Installation
+      - name: Verify CodeClimate Test Reporter
         run: |
-          echo "Verifying CodeClimate CLI version..."
-          /usr/local/bin/codeclimate-test-reporter --version
+          echo "Verifying CodeClimate Test Reporter version..."
+          codeclimate-test-reporter --version
 
-      # 4. Setup .NET
+      # 4. Setup .NET Environment
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
@@ -54,11 +54,11 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         run: |
           echo "Running CodeClimate Test Coverage..."
-          /usr/local/bin/codeclimate-test-reporter before-build
+          codeclimate-test-reporter before-build
           dotnet test --collect:"XPlat Code Coverage" --no-build
-          /usr/local/bin/codeclimate-test-reporter after-build --exit-code $?
+          codeclimate-test-reporter after-build --exit-code $?
 
-      # 8. Upload Coverage Report
+      # 8. Upload Coverage Report (Optional)
       - name: Upload Coverage Report
         uses: actions/upload-artifact@v3
         with:
