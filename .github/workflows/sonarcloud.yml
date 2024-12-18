@@ -40,16 +40,23 @@ jobs:
           Write-Host "Listing files after extraction:"
           Get-ChildItem -Recurse sonar-scanner
 
-      - name: Verify and Grant execute permission
+      - name: Find SonarScanner.MSBuild.exe
+        id: find_scanner
         run: |
-          $scannerPath = "sonar-scanner\sonar-scanner-9.0.2.104486-net-framework\SonarScanner.MSBuild.exe"
-          if (Test-Path $scannerPath) {
-            Write-Host "File exists, proceeding to set permissions."
-            icacls $scannerPath /grant:r Everyone:RX
+          Write-Host "Searching for SonarScanner.MSBuild.exe..."
+          $file = Get-ChildItem -Recurse -Filter SonarScanner.MSBuild.exe | Select-Object -First 1
+          if ($file) {
+            Write-Host "File found at: $($file.FullName)"
+            echo "scanner_path=$($file.FullName)" >> $env:GITHUB_ENV
           } else {
-            Write-Host "ERROR: File not found at path: $scannerPath"
+            Write-Host "ERROR: SonarScanner.MSBuild.exe not found!"
             exit 1
           }
+
+      - name: Grant execute permission
+        run: |
+          Write-Host "Granting permissions for SonarScanner..."
+          icacls "${{ env.scanner_path }}" /grant:r Everyone:RX
 
       - name: Restore dependencies
         run: |
@@ -63,9 +70,11 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          cd sonar-scanner/sonar-scanner-9.0.2.104486-net-framework
+          Write-Host "Running SonarScanner for MSBuild..."
+          $scannerDir = Split-Path "${{ env.scanner_path }}" -Parent
+          cd $scannerDir
           .\SonarScanner.MSBuild.exe begin /k:"toanthang204_QL-SHOP" /o:"toanthang204" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
-          cd ../../
+          cd ../../../
           msbuild SHOP.sln /p:Configuration=Release
-          cd sonar-scanner/sonar-scanner-9.0.2.104486-net-framework
+          cd $scannerDir
           .\SonarScanner.MSBuild.exe end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
