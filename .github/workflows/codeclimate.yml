@@ -18,49 +18,34 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Download and Install CodeClimate Test Reporter
-      - name: Install CodeClimate Test Reporter
-        run: |
-          echo "Downloading CodeClimate Test Reporter..."
-          curl -L -o artifacts.tar.gz https://github.com/codeclimate/test-reporter/releases/download/v0.11.1/artifacts.tar.gz
-          tar -xzf artifacts.tar.gz
-          chmod +x cc-test-reporter
-          sudo mv cc-test-reporter /usr/local/bin/codeclimate-test-reporter
-          echo "CodeClimate Test Reporter installed successfully!"
-
-      # 3. Verify CodeClimate CLI Installation
-      - name: Verify CodeClimate Test Reporter
-        run: |
-          echo "Verifying CodeClimate Test Reporter version..."
-          codeclimate-test-reporter --version
-
-      # 4. Setup .NET Environment
+      # 2. Setup .NET Environment
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '6.0.x'
 
-      # 5. Restore dependencies
+      # 3. Restore dependencies
       - name: Restore dependencies
         run: dotnet restore
 
-      # 6. Build project
+      # 4. Build project
       - name: Build project
         run: dotnet build --no-restore
 
-      # 7. Run CodeClimate Test Coverage
-      - name: Run CodeClimate Test Coverage
+      # 5. Run tests and generate coverage report
+      - name: Run tests and generate coverage
+        run: |
+          dotnet test --collect:"XPlat Code Coverage" --no-build
+          mv **/coverage.cobertura.xml coverage.cobertura.xml || echo "Coverage file not found"
+
+      # 6. Upload coverage to CodeClimate via Docker
+      - name: Upload Coverage Report to CodeClimate
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         run: |
-          echo "Running CodeClimate Test Coverage..."
-          codeclimate-test-reporter before-build
-          dotnet test --collect:"XPlat Code Coverage" --no-build
-          codeclimate-test-reporter after-build --exit-code $?
-
-      # 8. Upload Coverage Report (Optional)
-      - name: Upload Coverage Report
-        uses: actions/upload-artifact@v3
-        with:
-          name: coverage-results
-          path: '**/coverage.cobertura.xml'
+          echo "Uploading coverage report to CodeClimate..."
+          docker run --rm \
+            -v $(pwd):/code \
+            -e CC_TEST_REPORTER_ID=${CC_TEST_REPORTER_ID} \
+            codeclimate/test-reporter:latest \
+            after-build --input coverage.cobertura.xml
