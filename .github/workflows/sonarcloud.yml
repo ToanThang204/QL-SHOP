@@ -32,49 +32,38 @@ jobs:
         run: |
           Write-Host "Downloading SonarScanner for MSBuild..."
           Invoke-WebRequest -Uri "https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/9.0.2.104486/sonar-scanner-9.0.2.104486-net-framework.zip" -OutFile "sonar-scanner-msbuild.zip"
-          Write-Host "Extracting SonarScanner..."
           Expand-Archive -Path "sonar-scanner-msbuild.zip" -DestinationPath "sonar-scanner"
 
-      - name: Debug extracted files
+      - name: Find and set project solution
+        id: find_solution
         run: |
-          Write-Host "Listing files after extraction:"
-          Get-ChildItem -Recurse sonar-scanner
-
-      - name: Find SonarScanner.MSBuild.exe
-        id: find_scanner
-        run: |
-          Write-Host "Searching for SonarScanner.MSBuild.exe..."
-          $file = Get-ChildItem -Recurse -Filter SonarScanner.MSBuild.exe | Select-Object -First 1
-          if ($file) {
-            Write-Host "File found at: $($file.FullName)"
-            echo "scanner_path=$($file.FullName)" >> $env:GITHUB_ENV
+          Write-Host "Searching for SHOP.sln..."
+          $solution = Get-ChildItem -Recurse -Filter "SHOP.sln" | Select-Object -First 1
+          if ($solution) {
+            Write-Host "Solution file found: $($solution.FullName)"
+            echo "solution_path=$($solution.FullName)" >> $env:GITHUB_ENV
           } else {
-            Write-Host "ERROR: SonarScanner.MSBuild.exe not found!"
+            Write-Host "ERROR: SHOP.sln not found!"
             exit 1
           }
 
-      - name: Grant execute permission
-        run: |
-          Write-Host "Granting permissions for SonarScanner..."
-          icacls "${{ env.scanner_path }}" /grant:r Everyone:RX
-
-      - name: Restore dependencies
-        run: |
-          msbuild SHOP.sln /t:Restore
-
-      - name: Build project
-        run: |
-          msbuild SHOP.sln /p:Configuration=Release
-
-      - name: Run SonarScanner
+      - name: Run SonarScanner begin
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          Write-Host "Running SonarScanner for MSBuild..."
-          $scannerDir = Split-Path "${{ env.scanner_path }}" -Parent
-          cd $scannerDir
+          Write-Host "Running SonarScanner begin..."
+          cd sonar-scanner/sonar-scanner-9.0.2.104486-net-framework
           .\SonarScanner.MSBuild.exe begin /k:"toanthang204_QL-SHOP" /o:"toanthang204" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
-          cd ../../../
-          msbuild SHOP.sln /p:Configuration=Release
-          cd $scannerDir
+
+      - name: Build project
+        run: |
+          Write-Host "Building project..."
+          msbuild "${{ env.solution_path }}" /p:Configuration=Release
+
+      - name: Run SonarScanner end
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          Write-Host "Running SonarScanner end..."
+          cd sonar-scanner/sonar-scanner-9.0.2.104486-net-framework
           .\SonarScanner.MSBuild.exe end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
