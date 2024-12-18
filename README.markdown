@@ -20,7 +20,7 @@
 ## ẢNH DEMO QUẢN LÝ SHOP BÁN QUẦN ÁO  
 
 <div align="center">
-  <img src="https://via.placeholder.com/400" alt="Demo Shop" style="max-width: 100%; height: auto; border-radius: 8px;">
+  <img src="SHOP/Resources/demoQL.png" alt="Demo Shop" style="max-width: 100%; height: auto; border-radius: 8px;">
 </div>
 
 ---
