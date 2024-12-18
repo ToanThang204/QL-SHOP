@@ -38,9 +38,15 @@ jobs:
           ls -Recurse sonar-scanner
           tree sonar-scanner /F
 
-      - name: Grant execute permission
+      - name: Verify and Grant execute permission
         run: |
-          icacls sonar-scanner\**\SonarScanner.MSBuild.exe /grant:r Everyone:RX
+          if (Test-Path "sonar-scanner\sonar-scanner-9.0.2.104486-net-framework\SonarScanner.MSBuild.exe") {
+            Write-Host "File exists, proceeding to set permissions."
+            icacls "sonar-scanner\sonar-scanner-9.0.2.104486-net-framework\SonarScanner.MSBuild.exe" /grant:r Everyone:RX
+          } else {
+            Write-Host "File does not exist. Check the extraction step."
+            exit 1
+          }
 
       - name: Restore dependencies
         run: |
