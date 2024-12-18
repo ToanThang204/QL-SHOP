@@ -30,21 +30,24 @@ jobs:
 
       - name: Install SonarScanner for MSBuild
         run: |
+          Write-Host "Downloading SonarScanner for MSBuild..."
           Invoke-WebRequest -Uri "https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/9.0.2.104486/sonar-scanner-9.0.2.104486-net-framework.zip" -OutFile "sonar-scanner-msbuild.zip"
+          Write-Host "Extracting SonarScanner..."
           Expand-Archive -Path "sonar-scanner-msbuild.zip" -DestinationPath "sonar-scanner"
 
-      - name: Verify SonarScanner Files
+      - name: Debug extracted files
         run: |
-          ls -Recurse sonar-scanner
-          tree sonar-scanner /F
+          Write-Host "Listing files after extraction:"
+          Get-ChildItem -Recurse sonar-scanner
 
       - name: Verify and Grant execute permission
         run: |
-          if (Test-Path "sonar-scanner\sonar-scanner-9.0.2.104486-net-framework\SonarScanner.MSBuild.exe") {
+          $scannerPath = "sonar-scanner\sonar-scanner-9.0.2.104486-net-framework\SonarScanner.MSBuild.exe"
+          if (Test-Path $scannerPath) {
             Write-Host "File exists, proceeding to set permissions."
-            icacls "sonar-scanner\sonar-scanner-9.0.2.104486-net-framework\SonarScanner.MSBuild.exe" /grant:r Everyone:RX
+            icacls $scannerPath /grant:r Everyone:RX
           } else {
-            Write-Host "File does not exist. Check the extraction step."
+            Write-Host "ERROR: File not found at path: $scannerPath"
             exit 1
           }
 
