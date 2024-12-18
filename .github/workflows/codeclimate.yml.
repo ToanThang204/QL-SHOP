@@ -23,11 +23,10 @@ jobs:
           chmod +x codeclimate-test-reporter
           sudo mv codeclimate-test-reporter /usr/local/bin
 
-      - name: Run CodeClimate Test Coverage
+      - name: Run PHP Unit Tests
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         run: |
           codeclimate-test-reporter before-build
-          # Thay dòng này bằng lệnh test phù hợp cho dự án của bạn
-          npm test -- --coverage || pytest || go test -v ./...
+          php vendor/bin/phpunit --coverage-text
           codeclimate-test-reporter after-build --exit-code $?
