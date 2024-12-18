@@ -12,23 +12,27 @@ permissions:
 
 jobs:
   Analysis:
-    runs-on: windows-latest  # Sử dụng Windows runner vì .NET Framework không chạy trên Ubuntu
+    runs-on: windows-latest  # Chạy trên Windows vì .NET Framework chỉ hoạt động ở đây
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Không cần cài .NET Framework 4.7.2 vì Windows runner đã có sẵn
+      # Xây dựng dự án với MSBuild từ Visual Studio Build Tools
       - name: Restore dependencies
-        run: msbuild /t:Restore SHOP.sln
+        run: |
+          "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\msbuild.exe" /t:Restore SHOP.sln
 
       - name: Build project
-        run: msbuild /p:Configuration=Release SHOP.sln
+        run: |
+          "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\msbuild.exe" /p:Configuration=Release SHOP.sln
 
+      # Thực thi Unit Test nếu có
       - name: Run tests
         run: |
-          vstest.console.exe SHOP/YourTestProject.dll
+          "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" SHOP\YourTestProject.dll
 
+      # Phân tích với SonarCloud
       - name: Analyze with SonarCloud
         uses: SonarSource/sonarcloud-github-action@v2.2.0
         env:
