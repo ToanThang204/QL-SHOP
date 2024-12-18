@@ -14,37 +14,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Install CodeClimate CLI
       - name: Install CodeClimate CLI
         run: |
-          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 -o codeclimate-test-reporter
+          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > codeclimate-test-reporter
           chmod +x codeclimate-test-reporter
           sudo mv codeclimate-test-reporter /usr/local/bin
 
-      # 3. Verify CodeClimate CLI Installation
       - name: Verify CodeClimate CLI
-        run: |
-          codeclimate-test-reporter --version
+        run: codeclimate-test-reporter --version
 
-      # 4. Setup .NET Environment
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '6.0.x' # Chọn phiên bản phù hợp với dự án của bạn
+          dotnet-version: '6.0.x'
 
-      # 5. Restore dependencies
       - name: Restore dependencies
         run: dotnet restore
 
-      # 6. Build the project
       - name: Build project
         run: dotnet build --no-restore
 
-      # 7. Run tests and generate code coverage
       - name: Run CodeClimate Test Coverage
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
@@ -53,7 +45,6 @@ jobs:
           dotnet test --collect:"XPlat Code Coverage" --no-build
           codeclimate-test-reporter after-build --exit-code $?
 
-      # 8. Upload coverage report for debugging (optional)
       - name: Upload Coverage Report
         uses: actions/upload-artifact@v3
         with:
