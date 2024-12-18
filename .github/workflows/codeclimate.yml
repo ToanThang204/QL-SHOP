@@ -36,11 +36,12 @@ jobs:
       - name: Install CodeClimate Test Reporter
         run: |
           echo "Downloading CodeClimate Test Reporter..."
-          curl -L -o cc-test-reporter https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+          curl -L --fail -o cc-test-reporter https://codeclimate.com/downloads/test-reporter/test-reporter-0.11.1-linux-amd64
           chmod +x cc-test-reporter
           sudo mv cc-test-reporter /usr/local/bin/cc-test-reporter
           echo "Verifying CodeClimate Test Reporter..."
-          cc-test-reporter --version
+          /usr/local/bin/cc-test-reporter --version
+
 
       # 6. Run tests and generate coverage report
       - name: Run tests and generate coverage
