@@ -1,0 +1,35 @@
+name: CodeClimate Analysis
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  codeclimate:
+    name: Run CodeClimate Analysis
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install CodeClimate CLI
+        run: |
+          curl -L https://github.com/codeclimate/test-reporter/releases/latest/download/codeclimate-test-reporter-linux-amd64 -o codeclimate-test-reporter
+          chmod +x codeclimate-test-reporter
+          sudo mv codeclimate-test-reporter /usr/local/bin
+
+      - name: Run CodeClimate Test Coverage
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        run: |
+          codeclimate-test-reporter before-build
+          # Thay lệnh này bằng lệnh test phù hợp với dự án của bạn
+          php vendor/bin/phpunit --coverage-text || npm test -- --coverage
+          codeclimate-test-reporter after-build --exit-code $?
