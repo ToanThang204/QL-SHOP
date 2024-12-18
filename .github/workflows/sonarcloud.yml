@@ -16,43 +16,46 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      # 1. Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Setup MSBuild
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1.1
 
-      # 3. Setup Java (SonarScanner yêu cầu Java)
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
           distribution: 'adopt'
           java-version: '11'
 
-      # 4. Download và cài đặt SonarScanner for MSBuild
       - name: Install SonarScanner for MSBuild
         run: |
           Invoke-WebRequest -Uri "https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/9.0.2.104486/sonar-scanner-9.0.2.104486-net-framework.zip" -OutFile "sonar-scanner-msbuild.zip"
           Expand-Archive -Path "sonar-scanner-msbuild.zip" -DestinationPath "sonar-scanner"
-          echo "${{ github.workspace }}\sonar-scanner\sonar-scanner-9.0.2.104486-net-framework" | Out-File -Append -FilePath $env:GITHUB_PATH
 
-      # 5. Restore dependencies
+      - name: Verify SonarScanner Files
+        run: |
+          ls -Recurse sonar-scanner
+
+      - name: Grant execute permission
+        run: |
+          icacls sonar-scanner\sonar-scanner-9.0.2.104486-net-framework\SonarScanner.MSBuild.exe /grant:r Everyone:RX
+
       - name: Restore dependencies
         run: |
           msbuild SHOP.sln /t:Restore
 
-      # 6. Build project
       - name: Build project
         run: |
           msbuild SHOP.sln /p:Configuration=Release
 
-      # 7. Run SonarScanner để phân tích mã nguồn
       - name: Run SonarScanner
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          .\sonar-scanner\sonar-scanner-9.0.2.104486-net-framework\SonarScanner.MSBuild.exe begin /k:"toanthang204_QL-SHOP" /o:"toanthang204" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          cd sonar-scanner/sonar-scanner-9.0.2.104486-net-framework
+          .\SonarScanner.MSBuild.exe begin /k:"toanthang204_QL-SHOP" /o:"toanthang204" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          cd ../../
           msbuild SHOP.sln /p:Configuration=Release
-          .\sonar-scanner\sonar-scanner-9.0.2.104486-net-framework\SonarScanner.MSBuild.exe end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          cd sonar-scanner/sonar-scanner-9.0.2.104486-net-framework
+          .\SonarScanner.MSBuild.exe end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
