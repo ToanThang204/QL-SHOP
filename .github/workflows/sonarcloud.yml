@@ -36,10 +36,11 @@ jobs:
       - name: Verify SonarScanner Files
         run: |
           ls -Recurse sonar-scanner
+          tree sonar-scanner /F
 
       - name: Grant execute permission
         run: |
-          icacls sonar-scanner\sonar-scanner-9.0.2.104486-net-framework\SonarScanner.MSBuild.exe /grant:r Everyone:RX
+          icacls sonar-scanner\**\SonarScanner.MSBuild.exe /grant:r Everyone:RX
 
       - name: Restore dependencies
         run: |
