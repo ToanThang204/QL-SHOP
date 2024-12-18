@@ -11,25 +11,36 @@ permissions:
   pull-requests: read
 
 jobs:
-  build-analyze:
+  build-and-analyze:
     name: Build & Analyze with SonarCloud
-    runs-on: ubuntu-latest  # Chạy trên Linux
+    runs-on: windows-latest  # Chạy trên Windows
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: '4.7.2'
+      # Cài đặt MSBuild từ Visual Studio
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1.1
 
+      # Khôi phục dependencies
       - name: Restore dependencies
-        run: dotnet restore SHOP.sln
+        run: |
+          msbuild SHOP.sln /t:Restore
 
+      # Build project
       - name: Build project
-        run: dotnet build SHOP.sln --configuration Release
+        run: |
+          msbuild SHOP.sln /p:Configuration=Release
 
+      # Upload artifacts (nếu cần)
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifacts
+          path: "**/bin/Release/"
+
+      # Phân tích với SonarCloud
       - name: Analyze with SonarCloud
         uses: SonarSource/sonarcloud-github-action@v2.2.0
         env:
