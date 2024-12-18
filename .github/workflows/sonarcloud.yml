@@ -35,7 +35,7 @@ jobs:
       - name: Install SonarScanner for MSBuild
         run: |
           Invoke-WebRequest -Uri "https://github.com/SonarSource/sonar-scanner-msbuild/releases/download/9.0.2.104486/sonar-scanner-9.0.2.104486-net-framework.zip" -OutFile "sonar-scanner-msbuild.zip"
-          Expand-Archive -Path "sonar-scanner-msbuild.zip" -DestinationPath ".\sonar-scanner"
+          Expand-Archive -Path "sonar-scanner-msbuild.zip" -DestinationPath "sonar-scanner"
           echo "${{ github.workspace }}\sonar-scanner\sonar-scanner-9.0.2.104486-net-framework" | Out-File -Append -FilePath $env:GITHUB_PATH
 
       # 5. Restore dependencies
@@ -53,6 +53,6 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          SonarScanner.MSBuild.exe begin /k:"toanthang204_QL-SHOP" /o:"toanthang204" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          .\sonar-scanner\sonar-scanner-9.0.2.104486-net-framework\SonarScanner.MSBuild.exe begin /k:"toanthang204_QL-SHOP" /o:"toanthang204" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
           msbuild SHOP.sln /p:Configuration=Release
-          SonarScanner.MSBuild.exe end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          .\sonar-scanner\sonar-scanner-9.0.2.104486-net-framework\SonarScanner.MSBuild.exe end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
