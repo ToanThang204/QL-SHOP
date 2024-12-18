@@ -24,24 +24,23 @@ jobs:
           echo "Downloading CodeClimate CLI..."
           curl -L -o codeclimate-test-reporter https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
           chmod +x codeclimate-test-reporter
-          ls -lh codeclimate-test-reporter
-          file codeclimate-test-reporter
           sudo mv codeclimate-test-reporter /usr/local/bin/codeclimate-test-reporter
-          echo "CLI installed successfully!"
+          ls -lh /usr/local/bin/codeclimate-test-reporter
+          echo "Installation completed."
 
       # 3. Verify CodeClimate CLI
       - name: Verify CodeClimate CLI
         run: |
-          echo "Checking CLI version..."
-          codeclimate-test-reporter --version
+          echo "Verifying CodeClimate CLI version..."
+          /usr/local/bin/codeclimate-test-reporter --version
 
-      # 4. Setup .NET environment
+      # 4. Setup .NET
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '6.0.x' # Thay phiên bản .NET phù hợp với dự án
+          dotnet-version: '6.0.x'
 
-      # 5. Restore NuGet dependencies
+      # 5. Restore dependencies
       - name: Restore dependencies
         run: dotnet restore
 
@@ -49,19 +48,17 @@ jobs:
       - name: Build project
         run: dotnet build --no-restore
 
-      # 7. Run tests and generate coverage
+      # 7. Run CodeClimate Test Coverage
       - name: Run CodeClimate Test Coverage
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         run: |
-          echo "Running CodeClimate before-build..."
-          codeclimate-test-reporter before-build
-          echo "Running tests and generating coverage..."
-          dotnet test --collect:"XPlat Code Coverage" --no-build || echo "dotnet test failed!"
-          echo "Uploading coverage report to CodeClimate..."
-          codeclimate-test-reporter after-build --exit-code $?
+          echo "Running CodeClimate Test Coverage..."
+          /usr/local/bin/codeclimate-test-reporter before-build
+          dotnet test --collect:"XPlat Code Coverage" --no-build
+          /usr/local/bin/codeclimate-test-reporter after-build --exit-code $?
 
-      # 8. Upload Coverage Report (optional for debugging)
+      # 8. Upload Coverage Report
       - name: Upload Coverage Report
         uses: actions/upload-artifact@v3
         with:
