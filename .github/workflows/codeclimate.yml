@@ -18,7 +18,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Setup .NET
+      # 2. Setup .NET Environment
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
@@ -32,7 +32,7 @@ jobs:
       - name: Build project
         run: dotnet build --no-restore
 
-      # 5. Install CodeClimate Test Reporter
+      # 5. Download CodeClimate Test Reporter
       - name: Install CodeClimate Test Reporter
         run: |
           echo "Downloading CodeClimate Test Reporter..."
@@ -40,20 +40,19 @@ jobs:
           chmod +x cc-test-reporter
           sudo mv cc-test-reporter /usr/local/bin/cc-test-reporter
           echo "Verifying CodeClimate Test Reporter..."
-          /usr/local/bin/cc-test-reporter --version
-
+          cc-test-reporter --version
 
       # 6. Run tests and generate coverage report
       - name: Run tests and generate coverage
         run: |
           dotnet test --collect:"XPlat Code Coverage" --no-build
-          mv $(find . -name "coverage.cobertura.xml") coverage.cobertura.xml || echo "Coverage file not found"
+          mv **/coverage.cobertura.xml coverage.cobertura.xml || echo "Coverage file not found"
 
-      # 7. Upload coverage report to CodeClimate
+      # 7. Upload coverage to CodeClimate
       - name: Upload Coverage Report to CodeClimate
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         run: |
-          echo "Uploading coverage report to CodeClimate..."
+          echo "Preparing to upload coverage report to CodeClimate..."
           cc-test-reporter format-coverage coverage.cobertura.xml --input-type cobertura
-          cc-test-reporter upload-coverage
+          cc-test-reporter upload-coverage --id $CC_TEST_REPORTER_ID
