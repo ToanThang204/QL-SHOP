@@ -24,35 +24,33 @@ jobs:
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1.1
 
-      # 3. Setup Java (required for SonarScanner)
+      # 3. Setup Java (SonarScanner yêu cầu Java)
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
           distribution: 'adopt'
           java-version: '11'
 
-      # 4. Download and Install SonarScanner for MSBuild
+      # 4. Cài đặt SonarScanner for MSBuild bằng Chocolatey
       - name: Install SonarScanner for MSBuild
         run: |
-          Invoke-WebRequest -Uri "https://binaries.sonarsource.com/Distribution/sonar-scanner-msbuild/sonar-scanner-msbuild-5.13.0.66777-net46.zip" -OutFile "sonar-scanner-msbuild.zip"
-          Expand-Archive sonar-scanner-msbuild.zip -DestinationPath C:\sonar-scanner
-          echo "C:\sonar-scanner\sonar-scanner-msbuild-5.13.0.66777-net46" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          choco install sonarscanner --version=5.12.0.65733 --no-progress --force
 
       # 5. Restore dependencies
       - name: Restore dependencies
         run: |
           msbuild SHOP.sln /t:Restore
 
-      # 6. Build the project
+      # 6. Build project
       - name: Build project
         run: |
           msbuild SHOP.sln /p:Configuration=Release
 
-      # 7. Run SonarScanner analysis
+      # 7. Run SonarScanner để phân tích mã nguồn
       - name: Run SonarScanner
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          C:\sonar-scanner\sonar-scanner-msbuild-5.13.0.66777-net46\SonarScanner.MSBuild.exe begin /k:"toanthang204_QL-SHOP" /o:"toanthang204" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          SonarScanner.MSBuild.exe begin /k:"toanthang204_QL-SHOP" /o:"toanthang204" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
           msbuild SHOP.sln /p:Configuration=Release
-          C:\sonar-scanner\sonar-scanner-msbuild-5.13.0.66777-net46\SonarScanner.MSBuild.exe end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          SonarScanner.MSBuild.exe end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
