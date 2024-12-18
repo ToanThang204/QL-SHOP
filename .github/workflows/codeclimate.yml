@@ -23,11 +23,22 @@ jobs:
           chmod +x codeclimate-test-reporter
           sudo mv codeclimate-test-reporter /usr/local/bin
 
-      - name: Run CodeClimate Test Coverage
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '6.0.x' # Chọn phiên bản phù hợp với dự án của bạn
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build project
+        run: dotnet build --no-restore
+
+      - name: Run tests and generate coverage
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         run: |
           codeclimate-test-reporter before-build
-          # Thay lệnh bên dưới bằng lệnh test phù hợp với dự án của bạn
-          npm test -- --coverage || php vendor/bin/phpunit --coverage-text
+          dotnet test --collect:"XPlat Code Coverage" --no-build
+          reportgenerator -reports:**/coverage.cobertura.xml -targetdir:coverage
           codeclimate-test-reporter after-build --exit-code $?
