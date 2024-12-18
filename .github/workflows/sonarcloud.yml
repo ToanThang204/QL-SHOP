@@ -15,29 +15,37 @@ jobs:
     runs-on: windows-latest  # Chạy trên Windows vì .NET Framework chỉ hoạt động ở đây
 
     steps:
+      # 1. Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Xây dựng dự án với MSBuild từ Visual Studio Build Tools
-      - name: Restore dependencies
-        run: |
-         & "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\msbuild.exe" /t:Restore SHOP.sln
+      # 2. Setup NuGet CLI
+      - name: Setup NuGet
+        uses: nuget/setup-nuget@v1.0.5
 
+      # 3. Restore NuGet packages
+      - name: Restore NuGet dependencies
+        run: nuget restore SHOP.sln
+
+      # 4. Build project with MSBuild
       - name: Build project
         run: |
-         & "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\msbuild.exe" /p:Configuration=Release SHOP.sln
+          & "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\msbuild.exe" /p:Configuration=Release SHOP.sln
 
-      # Thực thi Unit Test nếu có
-      - name: Run tests
+      # 5. Run Unit Tests (nếu có file Test DLL)
+      - name: Run Unit Tests
         run: |
-         & "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" SHOP\YourTestProject.dll
+          & "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" SHOP.Tests\SHOP.Tests.dll
 
-      # Phân tích với SonarCloud
+      # 6. Analyze with SonarCloud
       - name: Analyze with SonarCloud
         uses: SonarSource/sonarcloud-github-action@v2.2.0
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  # Token bảo mật từ GitHub Secrets
         with:
           args: >
             -Dsonar.projectKey=YourProjectKey
             -Dsonar.organization=YourOrganizationKey
+            -Dsonar.exclusions=**/*.dll
+            -Dsonar.cs.vstest.reportsPaths="**/*.trx"
+            -Dsonar.cs.opencover.reportsPaths="**/coverage.opencover.xml"
