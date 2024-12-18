@@ -19,11 +19,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Cài đặt MSBuild từ Visual Studio
+      # Setup MSBuild cho .NET Framework
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1.1
 
-      # Khôi phục dependencies
+      # Cài đặt Java (SonarScanner yêu cầu Java)
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      # Download và cài đặt SonarScanner CLI
+      - name: Install SonarScanner CLI
+        run: |
+          choco install sonarscanner
+
+      # Restore dependencies
       - name: Restore dependencies
         run: |
           msbuild SHOP.sln /t:Restore
@@ -33,22 +45,11 @@ jobs:
         run: |
           msbuild SHOP.sln /p:Configuration=Release
 
-      # Upload artifacts (nếu cần)
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: build-artifacts
-          path: "**/bin/Release/"
-
-      # Phân tích với SonarCloud
-      - name: Analyze with SonarCloud
-        uses: SonarSource/sonarcloud-github-action@v2.2.0
+      # Chạy SonarScanner để phân tích mã nguồn
+      - name: Run SonarScanner
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: >
-            -Dsonar.projectKey=toanthang204_QL-SHOP
-            -Dsonar.organization=toanthang204
-            -Dsonar.sources=.
-            -Dsonar.exclusions=**/*.dll
-            -Dsonar.verbose=true
+        run: |
+          SonarScanner.MSBuild.exe begin /k:"toanthang204_QL-SHOP" /o:"toanthang204" /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          msbuild SHOP.sln /p:Configuration=Release
+          SonarScanner.MSBuild.exe end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
