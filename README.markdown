@@ -1,12 +1,12 @@
 <div align="center">
 
-# <span style="font-size: 2.5em; font-weight: bold;">LUXURY 4 STYLE</span>
+# <span style="font-size: 30em; font-weight: bold;">LUXURY 4 STYLE</span>
 
 </div>
 
 <div align="center">
 
-### <span style="font-size: 1.8em; font-style: italic; font-weight: bold;">Điền | Hiếu | Nhất | Thắng</span>
+### <span style="font-size: 5em; font-style: italic; font-weight: bold;">Điền | Hiếu | Nhất | Thắng</span>
 <div style="border-top: 3px solid #444; width: 50%; margin-top: 5px; margin-bottom: 20px;"></div>
 
 </div>
