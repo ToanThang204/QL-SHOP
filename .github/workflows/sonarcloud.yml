@@ -8,18 +8,18 @@ on:
   workflow_dispatch:
 
 permissions:
-  pull-requests: read # Cho phép SonarCloud phân tích và chú thích vào PR
+  pull-requests: read
 
 jobs:
   Analysis:
-    runs-on: windows-latest # Chạy trên Windows vì dự án dùng .NET Framework
+    runs-on: windows-latest
 
     steps:
       # 1. Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Cài đặt MSBuild và môi trường .NET
+      # 2. Setup MSBuild
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1.0.2
 
@@ -31,18 +31,13 @@ jobs:
       # 4. Build project
       - name: Build project
         run: |
-          & "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\msbuild.exe" /p:Configuration=Release SHOP.sln
+          & "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\msbuild.exe" /p:Configuration=Release /p:Platform="Any CPU" SHOP.sln
 
-      # 5. Chạy Unit Test nếu có
-      - name: Run tests
-        run: |
-          & "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" SHOP\YourTestProject.dll
-
-      # 6. Phân tích với SonarCloud
+      # 5. Analyze with SonarCloud
       - name: Analyze with SonarCloud
         uses: SonarSource/sonarcloud-github-action@v2.2.0
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # Token đã tạo trên SonarCloud
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
             -Dsonar.projectKey=toanthang204_QL-SHOP
