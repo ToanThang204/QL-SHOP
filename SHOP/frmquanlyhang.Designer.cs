@@ -32,7 +32,7 @@
             this.txtTheLoai = new System.Windows.Forms.ComboBox();
             this.txtXuatXu = new System.Windows.Forms.ComboBox();
             this.txtHangSP = new System.Windows.Forms.ComboBox();
-            this.txtNCC = new System.Windows.Forms.ComboBox();
+            this.txtMaNCC = new System.Windows.Forms.ComboBox();
             this.txtGiaBan = new System.Windows.Forms.TextBox();
             this.txtMaSP = new System.Windows.Forms.TextBox();
             this.btnkhoitao = new System.Windows.Forms.Button();
@@ -40,14 +40,7 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgv = new System.Windows.Forms.DataGridView();
-            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaNCC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HangSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TheLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.XuatXu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvQLH = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -57,8 +50,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvQLH)).BeginInit();
             this.SuspendLayout();
             // 
             // txtTenSP
@@ -133,10 +128,10 @@
             this.txtHangSP.Size = new System.Drawing.Size(159, 24);
             this.txtHangSP.TabIndex = 25;
             // 
-            // txtNCC
+            // txtMaNCC
             // 
-            this.txtNCC.FormattingEnabled = true;
-            this.txtNCC.Items.AddRange(new object[] {
+            this.txtMaNCC.FormattingEnabled = true;
+            this.txtMaNCC.Items.AddRange(new object[] {
             "NCC001",
             "NCC002",
             "NCC003",
@@ -147,10 +142,10 @@
             "NCC008",
             "NCC009",
             "NCC0010"});
-            this.txtNCC.Location = new System.Drawing.Point(345, 240);
-            this.txtNCC.Name = "txtNCC";
-            this.txtNCC.Size = new System.Drawing.Size(154, 24);
-            this.txtNCC.TabIndex = 24;
+            this.txtMaNCC.Location = new System.Drawing.Point(345, 240);
+            this.txtMaNCC.Name = "txtMaNCC";
+            this.txtMaNCC.Size = new System.Drawing.Size(154, 24);
+            this.txtMaNCC.TabIndex = 24;
             // 
             // txtGiaBan
             // 
@@ -200,14 +195,15 @@
             this.btnSua.TabIndex = 21;
             this.btnSua.Text = "Sửa ";
             this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
             this.btnThem.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Location = new System.Drawing.Point(1091, 189);
+            this.btnThem.Location = new System.Drawing.Point(1091, 193);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(85, 35);
+            this.btnThem.Size = new System.Drawing.Size(85, 31);
             this.btnThem.TabIndex = 18;
             this.btnThem.Text = "Thêm ";
             this.btnThem.UseVisualStyleBackColor = false;
@@ -215,7 +211,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dgv);
+            this.groupBox1.Controls.Add(this.dgvQLH);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(95, 446);
             this.groupBox1.Name = "groupBox1";
@@ -224,66 +220,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin:";
             // 
-            // dgv
+            // dgvQLH
             // 
-            this.dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaSP,
-            this.MaNCC,
-            this.HangSP,
-            this.TenSP,
-            this.TheLoai,
-            this.XuatXu,
-            this.GiaBan});
-            this.dgv.Location = new System.Drawing.Point(1, 23);
-            this.dgv.Name = "dgv";
-            this.dgv.RowHeadersWidth = 51;
-            this.dgv.RowTemplate.Height = 24;
-            this.dgv.Size = new System.Drawing.Size(1322, 431);
-            this.dgv.TabIndex = 0;
-            // 
-            // MaSP
-            // 
-            this.MaSP.HeaderText = "Mã SP";
-            this.MaSP.MinimumWidth = 6;
-            this.MaSP.Name = "MaSP";
-            // 
-            // MaNCC
-            // 
-            this.MaNCC.HeaderText = "Mã NCC";
-            this.MaNCC.MinimumWidth = 6;
-            this.MaNCC.Name = "MaNCC";
-            // 
-            // HangSP
-            // 
-            this.HangSP.HeaderText = "Hãng Sản Phẩm";
-            this.HangSP.MinimumWidth = 6;
-            this.HangSP.Name = "HangSP";
-            // 
-            // TenSP
-            // 
-            this.TenSP.HeaderText = "Tên Sản Phẩm";
-            this.TenSP.MinimumWidth = 6;
-            this.TenSP.Name = "TenSP";
-            // 
-            // TheLoai
-            // 
-            this.TheLoai.HeaderText = "Thể Loại";
-            this.TheLoai.MinimumWidth = 6;
-            this.TheLoai.Name = "TheLoai";
-            // 
-            // XuatXu
-            // 
-            this.XuatXu.HeaderText = "Xuất Xứ";
-            this.XuatXu.MinimumWidth = 6;
-            this.XuatXu.Name = "XuatXu";
-            // 
-            // GiaBan
-            // 
-            this.GiaBan.HeaderText = "Giá Bán";
-            this.GiaBan.MinimumWidth = 6;
-            this.GiaBan.Name = "GiaBan";
+            this.dgvQLH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvQLH.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvQLH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvQLH.Location = new System.Drawing.Point(1, 23);
+            this.dgvQLH.Name = "dgvQLH";
+            this.dgvQLH.RowHeadersWidth = 51;
+            this.dgvQLH.RowTemplate.Height = 24;
+            this.dgvQLH.Size = new System.Drawing.Size(1322, 431);
+            this.dgvQLH.TabIndex = 0;
+            this.dgvQLH.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvQLH_CellContentClick);
             // 
             // label9
             // 
@@ -377,17 +325,30 @@
             this.label10.TabIndex = 8;
             this.label10.Text = "QUẢN LÝ HÀNG";
             // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(345, 387);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(391, 22);
+            this.txtSearch.TabIndex = 29;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
+            // 
             // frmquanlyhang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Info;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1511, 935);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.txtTenSP);
             this.Controls.Add(this.txtTheLoai);
             this.Controls.Add(this.txtXuatXu);
             this.Controls.Add(this.txtHangSP);
-            this.Controls.Add(this.txtNCC);
+            this.Controls.Add(this.txtMaNCC);
             this.Controls.Add(this.txtGiaBan);
             this.Controls.Add(this.txtMaSP);
             this.Controls.Add(this.btnkhoitao);
@@ -408,8 +369,9 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmquanlyhang";
             this.Text = "frmquanlyhang";
+            this.Load += new System.EventHandler(this.frmquanlyhang_Load);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvQLH)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -421,7 +383,7 @@
         private System.Windows.Forms.ComboBox txtTheLoai;
         private System.Windows.Forms.ComboBox txtXuatXu;
         private System.Windows.Forms.ComboBox txtHangSP;
-        private System.Windows.Forms.ComboBox txtNCC;
+        private System.Windows.Forms.ComboBox txtMaNCC;
         private System.Windows.Forms.TextBox txtGiaBan;
         private System.Windows.Forms.TextBox txtMaSP;
         private System.Windows.Forms.Button btnkhoitao;
@@ -429,14 +391,7 @@
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dgv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaNCC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HangSP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TheLoai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn XuatXu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GiaBan;
+        private System.Windows.Forms.DataGridView dgvQLH;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -446,5 +401,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.PrintDialog printDialog1;
     }
 }

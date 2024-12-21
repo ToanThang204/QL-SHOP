@@ -2,172 +2,183 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace SHOP
 {
     public partial class frmquanlyhang : Form
     {
+        SqlConnection connection;
+        SqlCommand command;
+        string str = "Data Source=DESKTOP-QC6GJ5C\\SQLEXPRESS;Initial Catalog=QLShop;Integrated Security=True";
+        SqlDataAdapter adapter = new SqlDataAdapter();
+        DataTable table = new DataTable();
         public frmquanlyhang()
         {
             InitializeComponent();
 
-
         }
-        private int GetSelectedRow(string studentID)
-        {
-            // Duyệt qua từng dòng trong DataGridView
-            for (int i = 0; i < dgv.Rows.Count; i++)
-            {
-                // Kiểm tra ô đầu tiên (Cells[0]) có giá trị hợp lệ
-                if (dgv.Rows[i].Cells[0].Value != null &&
-                    !string.IsNullOrEmpty(dgv.Rows[i].Cells[0].Value.ToString()))
-                {
-                    // So sánh giá trị ô với studentID
-                    if (dgv.Rows[i].Cells[0].Value.ToString() == studentID)
-                    {
-                        return i; // Trả về chỉ số dòng nếu tìm thấy
-                    }
-                }
-            }
-
-            return -1; // Trả về -1 nếu không tìm thấy
-        }
-        private void InsertUpdate(int selectedRow)
-        {
-            // Gán giá trị cho từng ô (cell) của dòng được chỉ định trong DataGridView
-            dgv.Rows[selectedRow].Cells[0].Value = txtMaSP.Text;      // Mã SP
-            dgv.Rows[selectedRow].Cells[1].Value = txtNCC.Text;       // MaNCC
-            dgv.Rows[selectedRow].Cells[2].Value = txtHangSP.Text;    //Hãng Sản Phẩm
-            dgv.Rows[selectedRow].Cells[3].Value = txtTenSP.Text;     // Tên Sản Phẩm                    
-            dgv.Rows[selectedRow].Cells[4].Value = txtTheLoai.Text;   // Thể Loại
-            dgv.Rows[selectedRow].Cells[5].Value = txtXuatXu.Text;    //Xuất xứ
-            dgv.Rows[selectedRow].Cells[6].Value = txtGiaBan.Text;    // Giá Bán
-        }
-
-
-        private void btnThem_Click(object sender, EventArgs e)
+        void loaddata(string searchKeyword = "")
         {
             try
             {
-                // Kiểm tra dữ liệu nhập vào
-                if (txtMaSP.Text == "" || txtNCC.Text == "" || txtHangSP.Text == "" ||
-                    txtTenSP.Text == "" || txtTheLoai.Text == "" || txtXuatXu.Text == "" || txtGiaBan.Text == "")
+                using (connection = new SqlConnection(str))
                 {
-                    throw new Exception("Vui lòng nhập đầy đủ thông tin sản phẩm!");
-                }
+                    connection.Open(); // Open the connection
+                    command = connection.CreateCommand();
 
-                // Tìm dòng có mã sản phẩm tương ứng
-                int selectedRow = GetSelectedRow(txtMaSP.Text);
-                if (selectedRow == -1) // TH Thêm mới
-                {
-                    selectedRow = dgv.Rows.Add();
-                    InsertUpdate(selectedRow);
-                    MessageBox.Show("Thêm mới dữ liệu sản phẩm thành công!", "Thông Báo", MessageBoxButtons.OK);
-                }
-                else // TH cập nhật
-                {
-                    InsertUpdate(selectedRow);
-                    MessageBox.Show("Cập nhật dữ liệu sản phẩm thành công!", "Thông Báo", MessageBoxButtons.OK);
+                    if (!string.IsNullOrEmpty(searchKeyword))
+                    {
+                        command.CommandText = "SELECT * FROM ThongTinSanPham WHERE TenSanPham LIKE @searchKeyword";
+                        command.Parameters.AddWithValue("@searchKeyword", "%" + searchKeyword + "%");
+                    }
+                    else
+                    {
+                        command.CommandText = "SELECT * FROM ThongTinSanPham";
+                    }
+
+                    adapter.SelectCommand = command;
+                    table.Clear();
+                    adapter.Fill(table);
+                    dgvQLH.DataSource = table;
                 }
             }
             catch (Exception ex)
             {
-                // Hiển thị thông báo lỗi nếu có ngoại lệ
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (connection = new SqlConnection(str)) // Tạo kết nối mới
+                {
+                    connection.Open(); // Mở kết nối
+                    using (command = connection.CreateCommand()) // Tạo lệnh
+                    {
+                        command.CommandText = "INSERT INTO ThongTinSanPham (MaSP, MaNCC, HangSP, TenSanPham, TheLoai, XuatXu, GiaBan) " +
+                                              "VALUES (@MaSP, @MaNCC, @HangSP, @TenSP, @TheLoai, @XuatXu, @GiaBan)";
+
+                        // Thêm các tham số an toàn
+                        command.Parameters.AddWithValue("@MaSP", txtMaSP.Text);
+                        command.Parameters.AddWithValue("@MaNCC", txtMaNCC.Text);
+                        command.Parameters.AddWithValue("@HangSP", txtHangSP.Text);
+                        command.Parameters.AddWithValue("@TenSP", txtTenSP.Text);
+                        command.Parameters.AddWithValue("@TheLoai", txtTheLoai.Text);
+                        command.Parameters.AddWithValue("@XuatXu", txtXuatXu.Text);
+                        command.Parameters.AddWithValue("@GiaBan", txtGiaBan.Text);
+
+                        command.ExecuteNonQuery(); // Thực thi lệnh
+                        MessageBox.Show("Thêm sản phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    loaddata(); // Load lại dữ liệu
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi thêm sản phẩm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void btnxoa_Click(object sender, EventArgs e)
         {
             try
             {
-                // Tìm dòng có mã sản phẩm trùng khớp
-                int selectedRow = GetSelectedRow(txtMaSP.Text);
-
-                if (selectedRow == -1)
+                using (connection = new SqlConnection(str))
                 {
-                    // Nếu không tìm thấy mã sản phẩm
-                    throw new Exception("Không tìm thấy Mã Sản Phẩm cần xóa!");
-                }
-                else
-                {
-                    // Hiển thị hộp thoại xác nhận xóa
-                    DialogResult dr = MessageBox.Show("Bạn có muốn xóa sản phẩm này không?",
-                                                      "Xác Nhận Xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (dr == DialogResult.Yes)
-                    {
-                        // Xóa dòng sản phẩm tại vị trí tìm thấy
-                        dgv.Rows.RemoveAt(selectedRow);
+                    connection.Open();
+                    command = connection.CreateCommand();
+                    command.CommandText = "DELETE FROM ThongTinSanPham WHERE MaSP = @MaSP";
+                    command.Parameters.AddWithValue("@MaSP", txtMaSP.Text);
 
-                        // Xóa sạch các ô nhập liệu sau khi xóa
-                        txtMaSP.Text = "";
-                        txtNCC.Text = "";
-                        txtHangSP.Text = "";
-                        txtTenSP.Text = "";
-                        txtTheLoai.Text = "";
-                        txtXuatXu.Text = "";
-                        txtGiaBan.Text = "";
-
-
-                        // Thông báo thành công
-                        MessageBox.Show("Xóa sản phẩm thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Xóa sản phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    loaddata();
                 }
             }
             catch (Exception ex)
             {
-                // Hiển thị thông báo lỗi nếu có ngoại lệ
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi khi xóa sản phẩm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void btnkhoitao_Click(object sender, EventArgs e)
         {
+            txtMaSP.Text = "";
+            txtMaNCC.Text = "";
+            txtHangSP.Text = "";
+            txtTenSP.Text = "";
+            txtTheLoai.Text = "";
+            txtXuatXu.Text = "";
+            txtGiaBan.Text = "";
+     
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+
             try
             {
-                //Xóa Dữ Liệu trong DGV
-                dgv.Rows.Clear();
-                // Xóa sạch các ô nhập liệu
-                txtMaSP.Text = "";
-                txtNCC.Text = "";
-                txtHangSP.Text = "";
-                txtTenSP.Text = "";
-                txtTheLoai.Text = "";
-                txtXuatXu.Text = "";
-                txtGiaBan.Text = "";
+                using (connection = new SqlConnection(str))
+                {
+                    connection.Open();
+                    command = connection.CreateCommand();
+                    command.CommandText = "UPDATE ThongTinSanPham SET MaNCC = @MaNCC, HangSP = @HangSP, TenSanPham = @TenSanPham, TheLoai = @TheLoai, XuatXu = @XuatXu, GiaBan = @GiaBan WHERE MaSP = @MaSP";
 
-                // Đặt focus vào ô đầu tiên
-                txtMaSP.Focus();
+                    command.Parameters.AddWithValue("@MaSP", txtMaSP.Text);
+                    command.Parameters.AddWithValue("@MaNCC", txtMaNCC.Text);
+                    command.Parameters.AddWithValue("@HangSP", txtHangSP.Text);
+                    command.Parameters.AddWithValue("@TenSanPham", txtTenSP.Text);
+                    command.Parameters.AddWithValue("@TheLoai", txtTheLoai.Text);
+                    command.Parameters.AddWithValue("@XuatXu", txtXuatXu.Text);
+                    command.Parameters.AddWithValue("@GiaBan", txtGiaBan.Text);
 
-                // Làm mới DataGridView (nếu cần thiết)
-                dgv.Rows.Clear();
-
-                // Thêm dữ liệu khởi tạo (nếu có)
-                dgv.Rows.Add("SP001", "NCC001", "Adidas", "Áo Thun Nam", "Áo Thun", "USA", "300000");
-                dgv.Rows.Add("SP002", "NCC002", "Adidas", "Quần Jeans Nữ", "Quần Jeans", "Germany", "450000");
-                dgv.Rows.Add("SP003", "NCC003", "Puma", "Áo Khoác Hoodie", "Áo Khoác", "Italy", "600000");
-                dgv.Rows.Add("SP004", "NCC004", "Zara", "Váy Liền Nữ ", "Váy", "Spain", "550000");
-                dgv.Rows.Add("SP005", "NCC005", "H&M", "Áo Sơ Mi Nam ", "Áo Sơ Mi", "Sweden", "300000");
-                dgv.Rows.Add("SP006", "NCC006", "Uniqlo", "Quần Short ", "Quần Short", "Japan", "250000");
-                dgv.Rows.Add("SP007", "NCC007", "Levent", "Quần Jean Nam ", "Quần Jean", "USA", "700000");
-                dgv.Rows.Add("SP008", "NCC008", "Pull&Bear", "Áo Thun Nữ ", "Áo Thun", "Portugal", "320000");
-                dgv.Rows.Add("SP009", "NCC009", "Mango", "Đầm Xòe Nữ ", "Đầm", "Spain", "450000");
-                dgv.Rows.Add("SP010", "NCC010", "Converse", "Giày Sneaker", "Giày", "China", "800000");
-
-                // Thông báo thành công
-                MessageBox.Show("Dữ liệu đã được khởi tạo!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Cập nhật sản phẩm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    loaddata();
+                }
             }
             catch (Exception ex)
             {
-                // Xử lý lỗi nếu xảy ra
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi khi cập nhật sản phẩm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
-    
+
+        private void dgvQLH_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvQLH.Rows[e.RowIndex];
+                txtMaSP.Text = row.Cells["MaSP"].Value.ToString();
+                txtMaNCC.Text = row.Cells["MaNCC"].Value.ToString();
+                txtHangSP.Text = row.Cells["HangSP"].Value.ToString();
+                txtTenSP.Text = row.Cells["TenSanPham"].Value.ToString();
+                txtTheLoai.Text = row.Cells["TheLoai"].Value.ToString();
+                txtXuatXu.Text = row.Cells["XuatXu"].Value.ToString();
+                txtGiaBan.Text = row.Cells["GiaBan"].Value.ToString();
+            }
+         
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string searchKeyword = txtSearch.Text;
+            loaddata(searchKeyword);
+        }
+
+        private void frmquanlyhang_Load(object sender, EventArgs e)
+        {
+            loaddata();
+        }
     }
 }
